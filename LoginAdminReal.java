@@ -1,10 +1,11 @@
 import java.util.Scanner;
 public class Main {
 
+//    public static String[] NamaBaju=new String[100];
+
     public  static  void Logout2(String[]args){
         System.out.println("Selamat datang kembali");
     }
-
     public static void DaftarBarang (String[]args){
         int printall=3;
         Scanner scanner = new Scanner(System.in);
