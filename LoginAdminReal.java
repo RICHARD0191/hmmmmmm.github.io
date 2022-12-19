@@ -1,5 +1,9 @@
 import java.util.Scanner;
-public class LoginAdminReal {
+public class Main {
+
+    public  static  void Logout2(String[]args){
+        System.out.println("Selamat datang kembali");
+    }
 
     public static void DaftarBarang (String[]args){
         int printall=3;
@@ -22,26 +26,26 @@ public class LoginAdminReal {
             System.out.println("  "+"Ukuran : "+UkuranBaju[i]);
             System.out.println("  "+"Lengan Panjang/Pendek : "+LenganBaju[i]);
             System.out.println("================================");
-        
+
         }
-            System.out.println("Mau kemana ? ");
-            System.out.println("1. Kembali Dasboard");
-            System.out.println("2. Kembali Kelola Pesanan");
-            System.out.print("Pilihan: ");
-            int kemana = scanner.nextInt();
-            switch(kemana){
-                case 1 :
-                DasboardAdmin(null);  
-                case 2 :
+        System.out.println("Mau kemana ? ");
+        System.out.println("1. Kembali Dasboard");
+        System.out.println("2. Kembali Kelola Pesanan");
+        System.out.print("Pilihan: ");
+        int kemana = scanner.nextInt();
+        switch(kemana){
+            case 1 :
+                DasboardAdmin(null);
+            case 2 :
                 KelolaPesanan(args);
-            }
+        }
 
 
     }
 
     public static void KelolaPesanan (String[]args){
-        
-        
+
+
         Scanner scanner = new Scanner(System.in);
         System.out.println("==============");
         System.out.println("KELOLA PESANAN");
@@ -55,7 +59,7 @@ public class LoginAdminReal {
         switch(kemana){
 
             case 1 :
-            DaftarBarang(args);;
+                DaftarBarang(args);;
         }
 
 
@@ -75,17 +79,17 @@ public class LoginAdminReal {
         switch(kemana){
 
             case 1:
-            TambahBarang(null);
+                TambahBarang(null);
 
             case 2:
-            KelolaPesanan(null);
-            
+                KelolaPesanan(null);
+
 
         }
 
     }
 
-    
+
     public static void TambahBarang(String[] args){
         String[] namaBarang = new String[100];
         String[] jenisKain = new String[100];
@@ -138,41 +142,54 @@ public class LoginAdminReal {
             System.out.println("  "+"Ukuran : "+warnaBarang[i]);
             System.out.println("  "+"Lengan Panjang/Pendek : "+warnaBarang[i]);
             System.out.println("================================");
-        
-        }
-    System.out.println("");
-    System.out.println("================================");
-    System.out.println("================================");
-    System.out.println("");
-    System.out.println("1. Kembali ke menu admin");
-    System.out.println("2. Logout");
-    System.out.println("pilihan anda:  ");
-    String pilihanAnda = input.nextLine();
-    
-    if(pilihanAnda.equals("1")){
-        DasboardAdmin(null);
-    }
 
-}  // ini penutup dari atas
+        }
+        System.out.println("");
+        System.out.println("================================");
+        System.out.println("================================");
+        System.out.println("");
+        System.out.println("1. Kembali ke menu admin");
+        System.out.println("2. Logout");
+        System.out.println("pilihan anda:  ");
+        int pilihanAnda = input.nextInt();
+
+        switch (pilihanAnda){
+            case 1 :
+                DasboardAdmin(null);
+            case 2:
+                System.exit(0);
+        }
+
+//        if(pilihanAnda.equals("1")){
+//            DasboardAdmin(null);
+//        }
+//        else {
+//            Logout2(String[]args);
+//        }
+
+    }  // ini penutup dari atas
+
+    private static void exit() {
+    }
 
 
     public static void Login(String[]args){
-   // Ini array cuy
+        // Ini array cuy
         String[][] users = {{"user1", "password1"}, {"user2", "password2"}, {"user3", "password3"}};
 
         // ini scanner
         Scanner scanner = new Scanner(System.in);
 
-        // 
+        //
         String username;
         String password;
 
         // deklarasi variabel untuk kesempatan login...
         int SalahTerus = 0;
 
-        // Perulangan 
+        // Perulangan
         while (true) {
-            // 
+            //
             System.out.println("=====================");
             System.out.println("==== LOGIN ADMIN ====");
             System.out.println("=====================");
@@ -198,8 +215,8 @@ public class LoginAdminReal {
                 System.out.println("Login berhasil");
                 DasboardAdmin(null);
                 break;
-            } 
-            
+            }
+
             else {
                 // jika salah
                 System.out.println("Username atau password salah");
@@ -208,19 +225,19 @@ public class LoginAdminReal {
                 if (SalahTerus >= 3) {
                     System.out.println("Login salah, Tunggu 20 detik");
                     try {
-                        Thread.sleep(20000); // 
+                        Thread.sleep(20000); //
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
-                    SalahTerus = 0; 
-   
-              }
+                    SalahTerus = 0;
+
+                }
             }
         }
     }
 
-    
+
     public static void main(String[] args) {
-      Login(args);
+        Login(args);
     }
 }
